@@ -17,14 +17,20 @@ node {
         aquaMicroscanner imageName: 'dstubked/docker-test', notCompliesCmd: '', onDisallowed: 'fail', outputFormat: 'html'
     }
     
-    stage('Push image') {
+    
+    /*stage('Push image') { */
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          */
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        /*docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("latest")*/
+    stage('Complete') {
+            steps {
+                sh 'echo "Build Completed"'
+                sh '''
+                
+            }
         }
-    }
 }
